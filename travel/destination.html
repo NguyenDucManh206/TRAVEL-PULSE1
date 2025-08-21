@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Travel Pulse — Destination</title>
+<style>
+:root{
+  --primary:#3a66f5;
+  --ink:#0f172a;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --bg:#f7f7f8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer}
+
+/* Header */
+.header{
+  position:absolute;left:0;right:0;top:0;height:72px;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;color:#fff
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+.brand .logo{width:28px;height:28px;border:2px solid #fff;border-radius:6px;display:grid;place-items:center;font-size:12px}
+.nav{display:flex;gap:28px}
+.nav a{opacity:.9}
+.nav a:hover{opacity:1}
+.header-cta{display:flex;align-items:center;gap:16px}
+.icon-btn{
+  width:36px;height:36px;border-radius:999px;border:1px solid rgba(255,255,255,.35);
+  background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer
+}
+.btn{
+  padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#fff
+}
+.btn.solid{background:#fff;color:#111827;border-color:#fff}
+
+/* Hero */
+.hero{
+  height:520px;background:url('https://images.unsplash.com/photo-1462651567147-aa679fd1cfaf?q=80&w=1880&auto=format&fit=crop') center/cover no-repeat;
+  position:relative;display:flex;align-items:flex-end;justify-content:center
+}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.45))}
+.hero h1{
+  position:relative;z-index:1;color:#fff;text-align:center;max-width:880px;margin:0 16px 48px;
+  font-size:clamp(26px,4.2vw,44px);line-height:1.15;font-weight:800;
+  text-shadow:0 2px 18px rgba(0,0,0,.45)
+}
+
+/* Filters */
+.filters-wrap{
+  max-width:1100px;margin:-34px auto 6px;background:#fff;border-radius:18px;padding:22px 22px 8px;
+  box-shadow:0 12px 28px rgba(0,0,0,.12)
+}
+.search{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:10px 14px}
+.search input{flex:1;border:0;outline:0;font-size:14px}
+.search .glass{width:18px;height:18px;opacity:.7}
+.filters{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:16px;margin:16px 0 8px}
+.select{
+  display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);
+  border-radius:999px;padding:10px 14px;font-size:14px
+}
+.select .caret{width:16px;height:16px;opacity:.6}
+
+/* Grid */
+.grid{max-width:1280px;margin:25px auto 40px;padding:0 16px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 22px rgba(0,0,0,.06);transition:transform .25s ease, box-shadow .25s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 26px rgba(0,0,0,.08)}
+.card img{width:100%;height:200px;object-fit:cover;display:block}
+.card .meta{padding:12px 14px 16px}
+.card small{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}
+.card b{font-size:18px}
+
+/* Pagination */
+.pager{display:flex;align-items:center;justify-content:center;gap:10px;margin:12px 0 60px}
+.pager .dot, .pager button{min-width:36px;height:36px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
+.pager button{padding:0 12px}
+.pager .active{background:var(--primary);border-color:var(--primary);color:#fff}
+.pager .ghost{border:0;background:transparent}
+
+/* Footer */
+.footer{background:var(--primary);color:#fff;margin-top:30px;padding:56px 18px 36px}
+.footer .logo{font-weight:900;letter-spacing:1px;text-align:center;margin-bottom:10px}
+.footer p{text-align:center;opacity:.9;font-size:13px}
+
+/* Responsive */
+@media (max-width:1020px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:680px){
+  .header{position:static;color:#111}
+  .hero{height:320px}
+  .filters{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .filters-wrap{margin: -24px 12px 6px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="brand">
+    <div class="logo">TP</div> Travel&nbsp;Pulse
+  </div>
+  <nav class="nav">
+    <a href="#">Destination</a>
+    <a href="#">Stories</a>
+    <a href="#">Reviews</a>
+  </nav>
+  <div class="header-cta">
+    <button class="icon-btn" title="Search">🔍</button>
+    <a class="btn" href="#">Sign Up</a>
+    <a class="btn solid" href="#">Login</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Discovering the wonders of our planet, one adventure at a time</h1>
+</section>
+
+<!-- Search + Filters -->
+<div class="filters-wrap">
+  <div class="search">
+    <svg class="glass" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input placeholder="Search for places, hotels or restaurants"/>
+  </div>
+  <div class="filters">
+    <div class="select">All Types <svg class="caret" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="select">Most Popular <svg class="caret" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </div>
+</div>
+
+<!-- Grid -->
+<section class="grid">
+  <article class="card">
+    <img src="https://cdn-media.sforum.vn/storage/app/media/thanhhuyen/%E1%BA%A3nh%20trung%20qu%E1%BB%91c/1/anh-trung-quoc-10.jpg" alt="China">
+    <div class="meta"><small>Asia</small><b>China</b></div>
+  </article>
+  <article class="card">
+    <img src="https://media.istockphoto.com/id/940129080/vi/anh/deadvlei-%E1%BB%9F-sossusvlei-namibia.jpg?s=612x612&w=0&k=20&c=coJo3R5NhtF44ekJVt3mY-TSW0ApTu9zZGf99g6wWkM=" alt="Namibia">
+    <div class="meta"><small>Africa</small><b>Namibia</b></div>
+  </article>
+  <article class="card">
+    <img src="https://media.istockphoto.com/id/945069584/vi/anh/c%E1%BA%A3ng-n%E1%BB%99i-%C4%91%E1%BB%8Ba-%E1%BB%9F-victoria-canada.jpg?s=612x612&w=0&k=20&c=kTFZhcWYiXGU1JBi5UGX-tsa241k6ka1-TC0Ag-4ARM=" alt="Victoria">
+    <div class="meta"><small>Australia</small><b>Victoria</b></div>
+  </article>
+  <article class="card">
+    <img src="https://cdn.pixabay.com/photo/2024/02/26/12/15/photo-8597811_1280.jpg" alt="Denmark">
+    <div class="meta"><small>Europe</small><b>Denmark</b></div>
+  </article>
+  <article class="card">
+    <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/542000/542232-arena-gorda-beach.jpg" alt="Dominican Republic">
+    <div class="meta"><small>Caribbean</small><b>Dominican Republic</b></div>
+  </article>
+  <article class="card">
+    <img src="https://media.istockphoto.com/id/1337232523/vi/anh/t%E1%BA%A7m-nh%C3%ACn-g%C3%B3c-cao-c%E1%BB%A7a-h%E1%BB%93-v%C3%A0-r%E1%BB%ABng.jpg?s=612x612&w=is&k=20&c=3I2Wtfv1Xa9pc_QcjL4s1Px7WA8d2xQ8bRNLFbiaz-c=" alt="Ontario">
+    <div class="meta"><small>Canada</small><b>Ontario</b></div>
+  </article>
+  <article class="card">
+    <img src="https://images.unsplash.com/photo-1541417904950-b855846fe074?q=80&w=1200&auto=format&fit=crop" alt="Nigeria">
+    <div class="meta"><small>Africa</small><b>Nigeria</b></div>
+  </article>
+  <article class="card">
+    <img src="https://media.istockphoto.com/id/1307207379/vi/anh/l%C3%A0ng-assos-%E1%BB%9F-kefalonia-hy-l%E1%BA%A1p.jpg?s=612x612&w=0&k=20&c=GbhjbXhNNYKosaA2qu2dM7q5KO9w3RHooRvGpYRN204=" alt="Greece">
+    <div class="meta"><small>Europe</small><b>Greece</b></div>
+  </article>
+  <article class="card">
+    <img src="https://www.vietnambooking.com/wp-content/uploads/2020/10/nui-phu-sy-12102020-1.jpg" alt="Japan">
+    <div class="meta"><small>Asia</small><b>Japan</b></div>
+  </article>
+  <article class="card">
+    <img src="https://pantravel.vn/wp-content/uploads/2023/12/bai-bien-copacabana-tuyet-dep.jpg" alt="Brazil">
+    <div class="meta"><small>South America</small><b>Brazil</b></div>
+  </article>
+  <article class="card">
+    <img src="https://cdnmedia.baotintuc.vn/2014/08/20/10/21/hai.jpg" alt="Hawaii">
+    <div class="meta"><small>North America</small><b>Hawaii</b></div>
+  </article>
+  <article class="card">
+    <img src="https://images.unsplash.com/photo-1544989164-31dc3c645987?q=80&w=1200&auto=format&fit=crop" alt="Jordan">
+    <div class="meta"><small>Middle East</small><b>Jordan</b></div>
+  </article>
+</section>
+
+<!-- Pagination -->
+<nav class="pager" aria-label="Pagination">
+  <button class="ghost" aria-label="Prev">‹</button>
+  <button class="active">1</button>
+  <button>2</button>
+  <button>3</button>
+  <button>4</button>
+  <span class="dot">…</span>
+  <button>50</button>
+  <button class="ghost" aria-label="Next">›</button>
+</nav>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="logo">TRAVEL PULSE</div>
+  <p>© 2025 Travel Pulse. All rights reserved</p>
+</footer>
+
+</body>
+</html>

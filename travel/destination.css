@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    position: sticky;
+    top: 0;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar nav a.active {
+    color: blue;
+}
+
+.actions .btn {
+    margin-left: 10px;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.actions .login {
+    background: black;
+    color: white;
+}
+
+.hero {
+    background: url('https://source.unsplash.com/1600x600/?travel') center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.filters {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filters input {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+.dropdowns select {
+    padding: 10px;
+    margin: 0 5px;
+}
+
+.destinations {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card p {
+    color: gray;
+    margin: 5px 0 0;
+}
+
+.card h3 {
+    margin: 5px 0 15px;
+}
+
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination button {
+    margin: 0 3px;
+    padding: 5px 10px;
+}
+
+.pagination .active {
+    background: black;
+    color: white;
+}
+
+footer {
+    background: #3366ff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
